@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f4f6fb;
+  --foreground: #0b0f19;
+  --surface: #ffffff;
+  --surface-elevated: #f8fafc;
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --border-strong: rgba(15, 23, 42, 0.14);
+  --accent-primary: #4f46e5;
+  --accent-secondary: #7c3aed;
+  --accent-soft: rgba(79, 70, 229, 0.1);
+  --accent-glow: rgba(79, 70, 229, 0.22);
+}
+
+.dark {
+  --background: #060911;
+  --foreground: #f1f5f9;
+  --surface: #0d121f;
+  --surface-elevated: #131b2e;
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --accent-primary: #6366f1;
+  --accent-secondary: #8b5cf6;
+  --accent-soft: rgba(99, 102, 241, 0.14);
+  --accent-glow: rgba(99, 102, 241, 0.28);
+}
+
+/* Curated All-in-One Theme Presets */
+[data-theme-accent="indigo"] {
+  --accent-primary: #6366f1;
+  --accent-secondary: #8b5cf6;
+  --accent-soft: rgba(99, 102, 241, 0.14);
+  --accent-glow: rgba(99, 102, 241, 0.28);
+}
+
+[data-theme-accent="emerald"] {
+  --accent-primary: #10b981;
+  --accent-secondary: #059669;
+  --accent-soft: rgba(16, 185, 129, 0.14);
+  --accent-glow: rgba(16, 185, 129, 0.28);
+}
+
+[data-theme-accent="violet"] {
+  --accent-primary: #a855f7;
+  --accent-secondary: #ec4899;
+  --accent-soft: rgba(168, 85, 247, 0.14);
+  --accent-glow: rgba(168, 85, 247, 0.28);
+}
+
+[data-theme-accent="cyan"] {
+  --accent-primary: #06b6d4;
+  --accent-secondary: #3b82f6;
+  --accent-soft: rgba(6, 182, 212, 0.14);
+  --accent-glow: rgba(6, 182, 212, 0.28);
+}
+
+[data-theme-accent="amber"] {
+  --accent-primary: #f59e0b;
+  --accent-secondary: #ea580c;
+  --accent-soft: rgba(245, 158, 11, 0.14);
+  --accent-glow: rgba(245, 158, 11, 0.28);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(at 0% 0%, var(--accent-soft) 0px, transparent 48%),
+    radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.07) 0px, transparent 45%);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+  letter-spacing: -0.011em;
+  overflow-x: hidden;
+}
+
+/* Unified All-in-One Surface Classes */
+.pro-surface {
+  background-color: var(--surface);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+}
+
+.dark .pro-surface {
+  background-color: rgba(13, 18, 31, 0.82);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.35), inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+}
+
+.pro-surface-interactive {
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pro-surface-interactive:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+
+.pro-btn-accent {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: #ffffff;
+  box-shadow: 0 4px 14px -2px var(--accent-glow), inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+  transition: all 160ms ease;
+}
+
+.pro-btn-accent:hover {
+  filter: brightness(1.08);
+  transform: translateY(-0.5px);
+}
+
+.pro-text-accent {
+  color: var(--accent-primary);
+}
+
+.pro-bg-accent-soft {
+  background-color: var(--accent-soft);
+  color: var(--accent-primary);
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.45);
+}
+
